@@ -1,6 +1,9 @@
 import 'tailwindcss/tailwind.css'
+// Import tailwind preflight styles
+import 'tailwindcss/base.css'
 
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
+import { FartCursor } from 'components/FartCursor'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 
@@ -17,7 +20,7 @@ export default function App({
 }: AppProps<SharedPageProps>) {
   const { draftMode, token } = pageProps
   return (
-    <>
+    <FartCursor>
       {draftMode ? (
         <PreviewProvider token={token}>
           <Component {...pageProps} />
@@ -26,6 +29,6 @@ export default function App({
         <Component {...pageProps} />
       )}
       {draftMode && <VisualEditing />}
-    </>
+    </FartCursor>
   )
 }
