@@ -7,6 +7,7 @@ import MoreStories from 'components/MoreStories'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { ToiletRoll } from './ToiletRoll'
+import { Canvas } from '@react-three/fiber'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -27,7 +28,9 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <Container>
           <BlogHeader title={title} description={description} level={1} />
-          <ToiletRoll />
+          <Canvas>
+            <ToiletRoll />
+          </Canvas>
         </Container>
       </Layout>
     </>
