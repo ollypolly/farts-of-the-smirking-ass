@@ -1,3 +1,4 @@
+import { Canvas } from '@react-three/fiber'
 import Container from 'components/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
@@ -25,6 +26,14 @@ export default function IndexPage(props: IndexPageProps) {
 
       <Layout preview={preview} loading={loading}>
         <Container>
+          <Canvas>
+            <mesh>
+              <boxGeometry args={[2, 2, 2]} />
+              <meshPhongMaterial />
+            </mesh>
+            <ambientLight intensity={0.1} />
+            <directionalLight position={[0, 0, 5]} color="red" />
+          </Canvas>
           <BlogHeader title={title} description={description} level={1} />
           {heroPost && (
             <HeroPost
